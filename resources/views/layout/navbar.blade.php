@@ -46,7 +46,11 @@
                                 </div>
                                 <div class="flex-grow-1">
                                     <span class="fw-semibold d-block">{{ Auth::user()->name }}</span>
-                                    <small class="text-muted">{{ Str::upper(Auth::user()->role) }}</small>
+                                    @if (Auth::user()->role == 'admin')
+                                        <small class="text-muted">ADMIN</small>
+                                    @elseif (Auth::user()->role == 'officer')
+                                        <small class="text-muted">PETUGAS</small>
+                                    @endif
                                 </div>
                             </div>
                         </a>

@@ -59,12 +59,20 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item active">
-            <a href="index.html" class="menu-link">
+        <li class="menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
+            <a href="{{ route('dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle "></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
+        @if (Auth::user()->role == 'admin')
+            <li class="menu-item {{ Request::is('petugas') ? 'active' : '' }}">
+                <a href="{{ route('petugas.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-user-circle "></i>
+                    <div data-i18n="Analytics">Petugas</div>
+                </a>
+            </li>
+        @endif
     </ul>
 </aside>
 <!-- / Menu -->

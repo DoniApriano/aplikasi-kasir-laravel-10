@@ -43,6 +43,19 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="sneat/assets/js/config.js"></script>
+
+    <link rel="stylesheet" href="{{ asset('datatable/datatable.css') }}">
+    <link rel="stylesheet" href="{{ asset('datatable/dataTables.bootstrap5.min.js') }}">
+    <script src="{{ asset('datatable/datatable.js') }}"></script>
+    <script src="{{ asset('jquery/jquery.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
+
+
 </head>
 
 <body>
@@ -96,6 +109,13 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+        $('#myalert').delay('slow').slideDown('slow').delay(4000).slideUp(600);
+    </script>
+
+    <script src="{{ asset('datatable/datatable.min.js') }}"></script>
+    <script src="{{ asset('datatable/dataTables.bootstrap5.min.js') }}"></script>
 </body>
 
 </html>
