@@ -79,6 +79,12 @@
                 <div data-i18n="Analytics">Barang</div>
             </a>
         </li>
+        <li class="menu-item {{ Request::is('pelanggan') ? 'active' : '' }}">
+            <a href="{{ route('pelanggan.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-user-badge "></i>
+                <div data-i18n="Analytics">Pelanggan</div>
+            </a>
+        </li>
     </ul>
 </aside>
 <!-- / Menu -->

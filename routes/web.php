@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OfficerController;
 use App\Http\Controllers\ProductController;
@@ -28,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('/petugas', OfficerController::class)->middleware(['check-role:admin']);
     Route::resource('/barang', ProductController::class);
+    Route::resource('/pelanggan', CustomerController::class);
 
     Route::delete('/logout', [AuthController::class,'logout'])->name('logout');
 });
