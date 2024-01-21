@@ -73,6 +73,12 @@
                 </a>
             </li>
         @endif
+        <li class="menu-item {{ Request::is('barang') ? 'active' : '' }}">
+            <a href="{{ route('barang.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-box "></i>
+                <div data-i18n="Analytics">Barang</div>
+            </a>
+        </li>
     </ul>
 </aside>
 <!-- / Menu -->

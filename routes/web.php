@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OfficerController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
     Route::resource('/petugas', OfficerController::class)->middleware(['check-role:admin']);
+    Route::resource('/barang', ProductController::class);
 
     Route::delete('/logout', [AuthController::class,'logout'])->name('logout');
 });

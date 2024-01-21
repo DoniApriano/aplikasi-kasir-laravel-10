@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillabel = [
+    protected $fillable = [
         'name',
         'price',
         'stock',
