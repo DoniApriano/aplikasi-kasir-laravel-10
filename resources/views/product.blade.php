@@ -42,12 +42,12 @@
                                         <div class="d-flex justify-content-evently">
                                             <div class="m-1">
                                                 <button class="btn btn-primary" type="button"
-                                                    data-bs-target="#modal-edit-product"
+                                                    data-bs-target="#modal-edit-product{{ $product->id }}"
                                                     data-bs-toggle="modal">Ubah</button>
                                             </div>
-                                            <div class="modal fade" id="modal-edit-product" tabindex="-1"
-                                                data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-                                                aria-labelledby="modalTitleId" aria-hidden="true">
+                                            <div class="modal fade" id="modal-edit-product{{ $product->id }}"
+                                                tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+                                                role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md"
                                                     role="document">
                                                     <div class="modal-content">
@@ -92,7 +92,8 @@
                                                 </div>
                                             </div>
                                             <div class="m-1">
-                                                <form action="{{ route('barang.destroy', $product->id) }}" onclick="return confirm('Yakin ?')" method="post">
+                                                <form action="{{ route('barang.destroy', $product->id) }}"
+                                                    onclick="return confirm('Yakin ?')" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" type="submit">Hapus</button>
