@@ -14,4 +14,9 @@ class Product extends Model
         'price',
         'stock',
     ];
+
+    public function sale_detail()
+    {
+        return $this->hasMany(SaleDetail::class, 'product_id','id');
+    }
 }

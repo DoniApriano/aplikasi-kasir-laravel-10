@@ -9,9 +9,19 @@ class Sale extends Model
 {
     use HasFactory;
 
-    protected $fillabel = [
+    protected $fillable = [
         'date',
         'total_price',
         'customer_id',
     ];
+
+    public function sale_detail()
+    {
+        return $this->hasMany(SaleDetail::class, 'sale_id','id');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class,'customer_id','id');
+    }
 }
