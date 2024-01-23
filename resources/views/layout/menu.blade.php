@@ -85,6 +85,12 @@
                 <div data-i18n="Analytics">Pelanggan</div>
             </a>
         </li>
+        <li class="menu-item {{ Request::is('transaksi') ? 'active' : '' }}">
+            <a href="{{ route('transaksi.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-coin-stack "></i>
+                <div data-i18n="Analytics">Transaksi</div>
+            </a>
+        </li>
     </ul>
 </aside>
 <!-- / Menu -->
