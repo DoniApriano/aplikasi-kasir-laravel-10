@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OfficerController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SaleController;
 use App\Models\SaleDetail;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/transaksi', SaleController::class);
     Route::delete('/transaksi/{id}/batal', [SaleController::class,'cancel'])->name('transaksi.cancel');
     Route::post('/transaksi/{id}/selesai',[SaleController::class,'finish'])->name('transaksi.finish');
+    Route::get('/report',[ReportController::class,'report'])->name('report');
 
     Route::delete('/logout', [AuthController::class,'logout'])->name('logout');
 });

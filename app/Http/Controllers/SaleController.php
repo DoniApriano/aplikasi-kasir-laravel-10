@@ -6,6 +6,8 @@ use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Sale;
 use App\Models\SaleDetail;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -21,7 +23,7 @@ class SaleController extends Controller
         $sales = Sale::latest()->get();
         $sales_detail = SaleDetail::latest()->get();
         $no = 0;
-        return view('transaction', compact(['customers', 'today','sales', 'sales_detail','no']));
+        return view('transaction', compact(['customers', 'today', 'sales', 'sales_detail', 'no']));
     }
 
     public function store(Request $request)
@@ -122,10 +124,10 @@ class SaleController extends Controller
 
     public function finish($id)
     {
-        $sale_detail = SaleDetail::where('sale_id',$id)->get();
-        if ($sale_detail->count() < 1){
-            return redirect()->route('transaksi.show',$id)->with('error','Belum ada barang yang ditambahkan di transaksi ini');
+        $sale_detail = SaleDetail::where('sale_id', $id)->get();
+        if ($sale_detail->count() < 1) {
+            return redirect()->route('transaksi.show', $id)->with('error', 'Belum ada barang yang ditambahkan di transaksi ini');
         }
-        return redirect()->route('transaksi.index')->with('success','Berhasil melakukan transaksi');
+        return redirect()->route('transaksi.index')->with('success', 'Berhasil melakukan transaksi');
     }
 }
